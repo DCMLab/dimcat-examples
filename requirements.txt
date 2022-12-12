@@ -15,7 +15,7 @@ debugpy==1.6.3
 decorator==5.1.1
 defusedxml==0.7.1
 dill==0.3.5.1
-dimcat @ git+https://github.com/DCMLab/dimcat.git@f206d914261ffcc1c00e340da632f3cb0f893e7f
+dimcat @ git+https://github.com/DCMLab/dimcat.git@1e310e70f778a625c38793c75004e61727fb582a
 distlib==0.3.6
 entrypoints==0.4
 executing==1.1.0
@@ -46,7 +46,7 @@ matplotlib==3.6.0
 matplotlib-inline==0.1.6
 mbstrdecoder==1.1.1
 mistune==2.0.4
-ms3==0.5.3.post0.dev208+gae3a86f
+ms3>=1.0.2
 multiprocess==0.70.13
 nbclient==0.6.8
 nbconvert==7.1.0
