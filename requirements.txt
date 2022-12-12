@@ -15,7 +15,7 @@ debugpy==1.6.3
 decorator==5.1.1
 defusedxml==0.7.1
 dill==0.3.5.1
-dimcat @ git+https://github.com/DCMLab/dimcat.git@cca4b1270666b4859b63f9c5788baca705932bec
+dimcat @ git+https://github.com/DCMLab/dimcat.git@1e310e70f778a625c38793c75004e61727fb582a
 distlib==0.3.6
 entrypoints==0.4
 executing==1.1.0

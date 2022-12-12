@@ -40,7 +40,7 @@ The output of these operations is again a dataset with facets.
 ```python
 # this takes some time because it parses the original data, not the preprocessed tsv files
 dataset = dc.Dataset()
-dataset.load("~/ABC")
+dataset.load("./ABC")
 dataset.data
 ```
 

@@ -20,45 +20,45 @@ import dimcat as dc
 import pandas as pd
 ```
 
-## Load corpus
+## Load dataset
 
-Use dimcat's `Corpus` class to load a dataset.
-Each corpus consists of several subcorpora (here only `ABC`),
+Use dimcat's `Dataset` class to load a dataset.
+Each dataset consists of several subcorpora (here only `ABC`),
 which in turn consist of several pieces (here `n01_op18-1_01`, `n01_op18-1_02`, etc.).
 
-A `Corpus` has several representations of each piece (e.g. a list of chord labels or a list of notes) called *facets*.
+A `Dataset` has several representations of each piece (e.g. a list of chord labels or a list of notes) called *facets*.
 Each facet is represented by a dataframe.
 
 Corpora can be processed, e.g. slicing notes according to different criteria (see below).
-The output of these operations is again a corpus with facets.
+The output of these operations is again a dataset with facets.
 
 ```python
 # this takes some time because it parses the original data, not the preprocessed tsv files
-corpus = dc.Corpus()
-corpus.load("./ABC", parse_tsv=False, parse_scores=True) # make sure to parse directly from MuseScore files
-corpus.data
+dataset = dc.Dataset()
+dataset.load("./ABC", parse_tsv=False, parse_scores=True) # make sure to parse directly from MuseScore files
+dataset.data
 ```
 
 ## Get chord labels
 
 Chord labels are stored in the `expanded` facet.
 Using `.get_facet()` returns a single dataframe with all chord labels.
-Subcorpus, piece, and timespan ("interval") are encoded in an hierarchical index.
+Corpus, piece, and timespan ("interval") are encoded in an hierarchical index.
 
 ```python
-labels = corpus.get_facet("expanded")
+labels = dataset.get_facet("expanded")
 labels
 ```
 
 ## Get salami slices
 
-Use the `NoteSlicer` to obtain a sliced version of the corpus.
+Use the `NoteSlicer` to obtain a sliced version of the dataset.
 Querying the note facet returns the sliced notes.
 
 ```python
 # this takes some time
-salami_crp = dc.NoteSlicer().process_data(corpus)
-salami_notes = salami_crp.get_facet("notes")
+salami_dts = dc.NoteSlicer().process_data(dataset)
+salami_notes = salami_dts.get_facet("notes")
 salami_notes
 ```
 
@@ -109,9 +109,5 @@ str(pd.Interval(0.0,1.0,closed='left'))
 ```
 
 ```python
-salami.get_slice_info()
-```
-
-```python
-
+salami_dts.get_slice_info()
 ```

@@ -41,7 +41,7 @@ log.setLevel(logging.WARNING)
 # %%
 # this takes some time because it parses the original data, not the preprocessed tsv files
 dataset = dc.Dataset()
-dataset.load("~/ABC")
+dataset.load("./ABC")
 dataset.data
 
 # %% [markdown]
