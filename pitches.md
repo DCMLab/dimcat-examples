@@ -25,29 +25,29 @@ log = logging.getLogger()
 log.setLevel(logging.WARNING)
 ```
 
-## Load corpus
+## Load dataset
 
-Use dimcat's `Corpus` class to load a dataset.
-Each corpus consists of several subcorpora (here only `ABC`),
+Use dimcat's `Dataset` class to load a dataset.
+Each dataset consists of several corpora (here only `ABC`),
 which in turn consist of several pieces (here `n01_op18-1_01`, `n01_op18-1_02`, etc.).
 
-A `Corpus` has several representations of each piece (e.g. a list of chord labels or a list of notes) called *facets*.
+A `Dataset` has several representations of each piece (e.g. a list of chord labels or a list of notes) called *facets*.
 Each facet is represented by a dataframe.
 
 Corpora can be processed, e.g. slicing notes according to different criteria (see below).
-The output of these operations is again a corpus with facets.
+The output of these operations is again a dataset with facets.
 
 ```python
 # this takes some time because it parses the original data, not the preprocessed tsv files
-corpus = dc.Corpus()
-corpus.load("./ABC")
-corpus.data
+dataset = dc.Dataset()
+dataset.load("~/ABC")
+dataset.data
 ```
 
 ## Get notes
 
 ```python
-notes = corpus.get_facet("notes")
+notes = dataset.get_facet("notes")
 notes
 ```
 
@@ -84,7 +84,7 @@ notes
 We get the keys from the harmonic annotations:
 
 ```python
-labels = corpus.get_facet("expanded")
+labels = dataset.get_facet("expanded")
 labels
 ```
 
